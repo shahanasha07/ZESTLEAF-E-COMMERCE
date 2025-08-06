@@ -1,0 +1,36 @@
+
+
+[
+  {
+    "id": 1,
+    "name": "Green Cleanse Juice",
+    "image": "/images/greenJuice.png",
+    "price": 199,
+    "description": "A refreshing detox made with spinach, kale, green apple, and lemon.",
+    "benefits": ["Detox", "Digestive Health", "Weight Loss"],
+    "ingredients": ["Spinach", "Kale", "Green Apple", "Lemon"],
+    "duration": 500
+  },
+  {
+    "id": 2,
+    "name": "Immunity Boost Juice",
+    "image": "/images/orange.png",
+    "price": 249,
+    "description": "Boost your immunity with orange, ginger, turmeric, and honey.",
+    "benefits": ["Immunity", "Anti-inflammatory", "Energy"],
+    "ingredients": ["Orange", "Ginger", "Turmeric", "Honey"],
+    "duration": 700
+  },
+  {
+    "id": 3,
+    "name": "Beetroot Glow Juice",
+    "image": "/images/greenJuice.png",
+    "price": 229,
+    "description": "Glow naturally with beetroot, carrot, and apple for better skin & blood flow.",
+    "benefits": ["Skin Health", "Blood Circulation", "Detox"],
+    "ingredients": ["Beetroot", "Carrot", "Apple"],
+    "duration": 900
+  }
+  
+]
+
