@@ -5,6 +5,7 @@ import Product from '../Pages/Product'
 import Cart from '../Pages/Cart'
 import About from '../Pages/About'
 import Contact from '../Pages/Contact'
+import Wishlist from '../Pages/Wishlist'
 
 function Common() {
   return (
@@ -15,6 +16,7 @@ function Common() {
             <Route path='/cart' element={<Cart/>} />
             <Route path='/about' element={<About/>} />
             <Route path='/contact' element={<Contact/>} />
+            <Route path='/wishlist' element={<Wishlist/>} />
         </Routes>
     </div>
   )

@@ -7,6 +7,7 @@ import review3 from '../assets/james.jpg'
 import review4 from '../assets/james.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuoteLeft, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { useInView } from 'react-intersection-observer'
 
 const reviews = [
   {
@@ -61,15 +62,25 @@ function Testimonail() {
     return visible
   }
 
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => setShow(true), 100); // Add slight delay for smoother effect
+    return () => clearTimeout(timer); // Cleanup if component unmounts
+  }, []);
+
+  const [ref, inView] = useInView({
+    threshold: 0.1,
+  });
+
   return (
-    <div className="py-20 bg-[#f6fdf2]">
+    <div  ref={ref} className="py-20 bg-[#f6fdf2]">
       <div className="flex flex-col items-center">
         <div className="flex items-center mb-2">
-          <hr className="h-[3px] bg-[#74B816] hover:te w-14 ml-2" />
-          <p className="text-[#74B816] hover:te font-serif text-xl font-semibold mx-2">Testimonial</p>
-          <hr className="h-[3px] bg-[#74B816] hover:te w-14 ml-2" />
+          <hr className={`h-[3px] bg-[#74B816] hover:te w-14 ml-2 duration-700 ${inView? 'translate-y-0': 'translate-y-30'} `} />
+          <p className={`text-[#74B816] hover:te font-serif text-xl font-semibold mx-2 duration-700 ${inView? 'translate-y-0': 'translate-y-30'} `}>Testimonial</p>
+          <hr className={`h-[3px] bg-[#74B816] hover:te w-14 ml-2 duration-700 ${inView? 'translate-y-0': 'translate-y-30'} `} />
         </div>
-        <h1 className="text-3xl md:text-5xl text-center font-bold mt-4 mb-10">Our Clients Say!!!</h1>
+        <h1 className={`text-3xl md:text-5xl text-center font-bold mt-4 mb-10 duration-700 ${inView? 'translate-y-0': 'translate-y-30'}`}>Our Clients Say!!!</h1>
       </div>
       <div className="relative max-w-4xl mx-auto">
         <div
@@ -104,29 +115,30 @@ function Testimonail() {
             ))}
           </div> */}
 
-<div className="overflow-hidden w-full max-w-4xl relative">
-  <div
-    className="flex transition-transform duration-700 ease-in-out"
-    style={{
-      transform: `translateX(-${(current * (100 / CARDS_TO_SHOW))}%)`,
-      width: `${(reviews.length * (100 / CARDS_TO_SHOW))}%`
-    }}
-  >
-    {reviews.map((review, idx) => (
-      <div
-        key={idx}
-        className="w-1/2 px-3 box-border shrink-0"
-      >
-        <div className="border px-8 py-8 bg-white rounded-lg shadow-lg flex flex-col items-center text-center min-h-[340px] h-full">
-          <FontAwesomeIcon icon={faQuoteLeft} className="text-3xl text-[#74B816] mb-4" />
-          <p className="text-gray-600 italic mb-6 text-lg flex-1">{review.text}</p>
-          <img src={review.image} alt={review.name} className="rounded-full w-20 h-20 border-4 border-[#74B816] mb-3 object-cover" />
-          <p className="font-bold text-[#74B816] text-lg">{review.name}</p>
-        </div>
-      </div>
-    ))}
-  </div>
-</div>
+          <div
+            className="overflow-hidden w-full max-w-4xl relative ">
+            <div
+              className="flex transition-transform duration-700 ease-in-out"
+              style={{
+                transform: `translateX(-${(current * (100 / CARDS_TO_SHOW))}%)`,
+                width: `${(reviews.length * (100 / CARDS_TO_SHOW))}%`
+              }}
+            >
+              {reviews.map((review, idx) => (
+                <div
+                  key={idx}
+                  className="w-1/2 px-3 box-border shrink-0"
+                >
+                  <div className={`border px-8 py-8 bg-white rounded-lg shadow-lg flex flex-col items-center text-center min-h-[340px] h-full duration-700 ${inView? 'translate-y-0' : 'translate-y-88'} `} >
+                    <FontAwesomeIcon icon={faQuoteLeft} className="text-3xl text-[#74B816] mb-4" />
+                    <p className="text-gray-600 italic mb-6 text-lg flex-1">{review.text}</p>
+                    <img src={review.image} alt={review.name} className="rounded-full w-20 h-20 border-4 border-[#74B816] mb-3 object-cover" />
+                    <p className="font-bold text-[#74B816] text-lg">{review.name}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
 
 
 

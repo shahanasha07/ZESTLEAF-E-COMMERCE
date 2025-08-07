@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useInView } from 'react-intersection-observer';
 import { useDispatch, useSelector } from 'react-redux';
-import { addtocart } from '../Redux/cartSlice/cartSlice';
+import { ADD_TO_CART } from '../Redux/cartSlice/cartSlice';
 
 
 function Card() {
@@ -14,7 +14,7 @@ function Card() {
     const handleAddToCart = (item) => {
         
         console.log('added to cart', item);
-        dispatch({ type: addtocart, payload: item });
+        dispatch({ type: ADD_TO_CART, payload: item });
         
     }
 

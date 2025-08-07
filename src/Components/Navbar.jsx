@@ -48,7 +48,7 @@ function Navbar() {
 
   return (
     <div>
-      <nav className="w-full fixed flex justify-between items-center px-8 text-white  bg-gray-500/60 z-99">
+      <nav className="w-full fixed flex justify-between items-center px-8 text-white  bg-gray-500/60 z-90">
         {/* Logo */}
         <div>
           {/* <h1 className="font-extrabold text-xl">ONROAD</h1> */}
