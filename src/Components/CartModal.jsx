@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { EDITED_CART_QTY, SET_EDIT_INDEX, SET_EDIT_QTY } from '../Redux/cartSlice/cartSlice'
+import ShoppingAddressForm from './ShoppingAddressForm'
 
 function CartModal() {
     const { editIndex, editQty } = useSelector((state) => state.cart)
@@ -59,6 +60,7 @@ function CartModal() {
                             >
                                 Cancel
                             </button>
+                            <ShoppingAddressForm/>
                         </div>
                     </div>
                 </div>

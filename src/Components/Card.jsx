@@ -44,7 +44,7 @@ function Card() {
                         <p className='text-[#34a0a4] font-semibold'>${item.price} </p>
                         <button
                         onClick={() => handleAddToCart(item)}
-                         className=' px-8 py-2 mb-2  bg-[#74B816] rounded-full text-white'>Add To Cart</button>
+                         className=' px-8 py-2 mb-2  bg-[#74B816] rounded-full text-white cursor-pointer'>Add To Cart</button>
                     </div>
 
                 </div>
